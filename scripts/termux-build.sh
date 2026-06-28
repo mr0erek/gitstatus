@@ -58,10 +58,10 @@ make CXX=clang++ \
      -j"$(nproc)"
 
 install -d "$PREFIX/bin"
-install -m 755 "$REPO_DIR/usrbin/gitstatusd" "$PREFIX/bin/gitstatusd"
+install -m 755 "$REPO_DIR/usr/bin/gitstatusd" "$PREFIX/bin/gitstatusd"
 
 echo
-echo "Build finished. If successful, the binary is at: $REPO_DIR/usrbin/gitstatusd"
+echo "Build finished. If successful, the binary is at: $REPO_DIR/usr/bin/gitstatusd"
 echo "Installed copy to: $PREFIX/bin/gitstatusd"
 echo "To run from Termux (example):"
 echo "  export PATH=\"$PREFIX/bin:\$PATH\""
