@@ -157,8 +157,8 @@ END
       >&2 echo "[gitstatus] error: GITSTATUS_DAEMON is not absolute path: $daemon"
       return 1
     fi
-    if [ -z "$daemon" -a -e "$gitstatus_dir"/usrbin/gitstatusd ]; then
-      daemon="$gitstatus_dir"/usrbin/gitstatusd
+    if [ -z "$daemon" -a -e "$gitstatus_dir"/usr/bin/gitstatusd ]; then
+      daemon="$gitstatus_dir"/usr/bin/gitstatusd
     fi
     if [ -n "$daemon" ]; then
       local gitstatus_version= libgit2_version=
@@ -205,7 +205,7 @@ END
 
     if [ -z "$no_check" ]; then
       # Check if a suitable gitstatusd already exists.
-      local daemon="$gitstatus_dir"/usrbin/"$file"
+      local daemon="$gitstatus_dir"/usr/bin/"$file"
       if [ ! -e "$daemon" ]; then
         daemon="$cache_dir"/"$file"
         [ -e "$daemon" ] || daemon=
@@ -485,8 +485,8 @@ END
         ''|[Yy]|[Yy][Ee][Ss])
           command chmod +x -- "$gitstatus_dir/scripts/termux-build.sh" 2>/dev/null || true
           if bash "$gitstatus_dir/scripts/termux-build.sh" "$gitstatus_dir" "$HOME/local"; then
-            if [ -x "$gitstatus_dir/usrbin/gitstatusd" ]; then
-              daemon="$gitstatus_dir/usrbin/gitstatusd"
+            if [ -x "$gitstatus_dir/usr/bin/gitstatusd" ]; then
+              daemon="$gitstatus_dir/usr/bin/gitstatusd"
               _gitstatus_install_daemon_found 1 "$@"
               return
             fi
